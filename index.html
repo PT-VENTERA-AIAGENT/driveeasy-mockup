@@ -1679,7 +1679,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
 <div id="s8" class="screen" style="display:none">
   <div class="flex" style="min-height:100vh">
     <!-- Sidebar -->
-    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 64px);position:sticky;top:64px;align-self:flex-start">
+    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:100vh;position:sticky;top:0;align-self:flex-start">
       <div style="padding:16px 16px 12px;border-bottom:1px solid rgba(255,255,255,.08)">
         <div onclick="show('s1')" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;padding:5px 8px;border-radius:6px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.07)'" onmouseout="this.style.background='transparent'">
           <svg width="13" height="13" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
@@ -1720,8 +1720,8 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
     </aside>
 
     <!-- Main content -->
-    <main style="flex:1;padding:var(--s32);min-width:0;overflow-y:auto">
-      <div class="flex jcsb aic mb32">
+    <main style="flex:1;min-width:0;overflow-y:auto;display:flex;flex-direction:column">
+      <div style="background:white;border-bottom:1px solid var(--hairline);padding:14px var(--s32);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;flex-shrink:0">
         <div>
           <p class="caption-up" style="margin-bottom:4px">Selamat datang</p>
           <h1 class="display-md" style="font-weight:400">Dashboard</h1>
@@ -1731,6 +1731,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
           <button class="btn-primary" style="height:36px;padding:0 16px;font-size:13px">+ Booking Manual</button>
         </div>
       </div>
+      <div style="padding:var(--s32);flex:1;overflow-y:auto;min-height:0">
 
       <!-- KPI Cards — redesigned -->
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:var(--s32)">
@@ -1912,6 +1913,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
           </div>
         </div>
       </div>
+      </div>
     </main>
   </div>
 </div>
@@ -1919,7 +1921,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
 <!-- ===== SCREEN 9: FLEET CALENDAR ===== -->
 <div id="s9" class="screen" style="display:none">
   <div class="flex" style="min-height:100vh">
-    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 64px);position:sticky;top:64px;align-self:flex-start">
+    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:100vh;position:sticky;top:0;align-self:flex-start">
       <div style="padding:16px 16px 12px;border-bottom:1px solid rgba(255,255,255,.08)">
         <div onclick="show('s1')" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;padding:5px 8px;border-radius:6px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.07)'" onmouseout="this.style.background='transparent'">
           <svg width="13" height="13" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
@@ -1931,8 +1933,8 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
       <nav style="padding:12px 8px"></nav>
     </aside>
 
-    <main style="flex:1;padding:var(--s32);overflow-y:auto">
-      <div class="flex jcsb aic mb32">
+    <main style="flex:1;overflow-y:auto;display:flex;flex-direction:column">
+      <div style="background:white;border-bottom:1px solid var(--hairline);padding:14px var(--s32);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;flex-shrink:0">
         <h1 class="display-md" style="font-weight:400">Kalender Armada</h1>
         <div class="flex gap12">
           <button class="btn-outline" style="height:36px;padding:0 16px;font-size:13px">← Agustus 2026</button>
@@ -1940,6 +1942,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
           <button class="btn-primary" style="height:36px;padding:0 16px;font-size:13px">+ Blokir Tanggal</button>
         </div>
       </div>
+      <div style="padding:var(--s32);flex:1;overflow-y:auto;min-height:0">
 
       <!-- Legend -->
       <div class="flex gap16 mb24">
@@ -2019,6 +2022,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
           </tbody>
         </table>
       </div>
+      </div>
     </main>
   </div>
 </div>
@@ -2026,7 +2030,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
 <!-- ===== SCREEN 10: BOOKING MANAGEMENT ===== -->
 <div id="s10" class="screen" style="display:none">
   <div class="flex" style="min-height:100vh">
-    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 64px);position:sticky;top:64px;align-self:flex-start">
+    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:100vh;position:sticky;top:0;align-self:flex-start">
       <div style="padding:16px 16px 12px;border-bottom:1px solid rgba(255,255,255,.08)">
         <div onclick="show('s1')" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;padding:5px 8px;border-radius:6px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.07)'" onmouseout="this.style.background='transparent'">
           <svg width="13" height="13" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
@@ -2038,11 +2042,12 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
       <nav style="padding:12px 8px"></nav>
     </aside>
 
-    <main style="flex:1;padding:var(--s32);overflow-y:auto">
-      <div class="flex jcsb aic mb24">
+    <main style="flex:1;overflow-y:auto;display:flex;flex-direction:column">
+      <div style="background:white;border-bottom:1px solid var(--hairline);padding:14px var(--s32);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;flex-shrink:0">
         <h1 class="display-md" style="font-weight:400">Manajemen Pemesanan</h1>
         <button class="btn-primary" style="height:36px;padding:0 16px;font-size:13px">+ Booking Manual</button>
       </div>
+      <div style="padding:var(--s32);flex:1;overflow-y:auto;min-height:0">
 
       <!-- Filters -->
       <div class="flex gap12 mb24" style="flex-wrap:wrap">
@@ -2146,6 +2151,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
           <button class="btn-outline" style="height:32px;padding:0 12px;font-size:13px">Next →</button>
         </div>
       </div>
+      </div>
     </main>
   </div>
 </div>
@@ -2153,7 +2159,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
 <!-- ===== SCREEN 11: ANALYTICS / FLEET INTELLIGENCE ===== -->
 <div id="s11" class="screen" style="display:none">
   <div class="flex" style="min-height:100vh">
-    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 64px);position:sticky;top:64px;align-self:flex-start">
+    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:100vh;position:sticky;top:0;align-self:flex-start">
       <div style="padding:16px 16px 12px;border-bottom:1px solid rgba(255,255,255,.08)">
         <div onclick="show('s1')" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;padding:5px 8px;border-radius:6px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.07)'" onmouseout="this.style.background='transparent'">
           <svg width="13" height="13" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
@@ -2165,8 +2171,8 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
       <nav style="padding:12px 8px"></nav>
     </aside>
 
-    <main style="flex:1;padding:var(--s32);overflow-y:auto">
-      <div class="flex jcsb aic mb32">
+    <main style="flex:1;overflow-y:auto;display:flex;flex-direction:column">
+      <div style="background:white;border-bottom:1px solid var(--hairline);padding:14px var(--s32);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;flex-shrink:0">
         <h1 class="display-md" style="font-weight:400">Fleet Intelligence</h1>
         <div class="flex gap12">
           <select style="padding:8px 14px;border:1px solid var(--hairline);border-radius:var(--pill);font-size:13px;color:var(--tx-ink);background:var(--card)">
@@ -2177,6 +2183,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
           <button class="btn-outline" style="height:36px;padding:0 16px;font-size:13px">Export PDF</button>
         </div>
       </div>
+      <div style="padding:var(--s32);flex:1;overflow-y:auto;min-height:0">
 
       <!-- KPI Row -->
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:var(--s32)">
@@ -2335,6 +2342,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
           </div>
         </div>
       </div>
+      </div>
     </main>
   </div>
 </div>
@@ -2344,7 +2352,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
 <div id="s12" class="screen" style="display:none">
   <div class="flex" style="min-height:100vh">
     <!-- Sidebar -->
-    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 64px);position:sticky;top:64px;align-self:flex-start">
+    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:100vh;position:sticky;top:0;align-self:flex-start">
       <div style="padding:16px 16px 12px;border-bottom:1px solid rgba(255,255,255,.08)">
         <div onclick="show('s1')" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;padding:5px 8px;border-radius:6px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.07)'" onmouseout="this.style.background='transparent'">
           <svg width="13" height="13" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
@@ -2385,8 +2393,8 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
     </aside>
 
     <!-- Main content -->
-    <main style="flex:1;padding:var(--s32);min-width:0;overflow-y:auto">
-      <div class="flex jcsb aic mb32">
+    <main style="flex:1;min-width:0;overflow-y:auto;display:flex;flex-direction:column">
+      <div style="background:white;border-bottom:1px solid var(--hairline);padding:14px var(--s32);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;flex-shrink:0">
         <div>
           <p class="caption-up" style="margin-bottom:4px">Manajemen</p>
           <h1 class="display-md" style="font-weight:400">Armada</h1>
@@ -2396,6 +2404,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
           <button class="btn-primary" style="height:36px;padding:0 16px;font-size:13px">+ Tambah Kendaraan</button>
         </div>
       </div>
+      <div style="padding:var(--s32);flex:1;overflow-y:auto;min-height:0">
 
       <!-- Stats -->
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:var(--s32)">
@@ -2590,6 +2599,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
           </div>
         </div>
       </div>
+      </div>
     </main>
   </div>
 </div>
@@ -2598,7 +2608,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
 <div id="s13" class="screen" style="display:none">
   <div class="flex" style="min-height:100vh">
     <!-- Sidebar -->
-    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 64px);position:sticky;top:64px;align-self:flex-start">
+    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:100vh;position:sticky;top:0;align-self:flex-start">
       <div style="padding:16px 16px 12px;border-bottom:1px solid rgba(255,255,255,.08)">
         <div onclick="show('s1')" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;padding:5px 8px;border-radius:6px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.07)'" onmouseout="this.style.background='transparent'">
           <svg width="13" height="13" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
@@ -2639,8 +2649,8 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
     </aside>
 
     <!-- Main content -->
-    <main style="flex:1;padding:var(--s32);min-width:0;overflow-y:auto">
-      <div class="flex jcsb aic mb32">
+    <main style="flex:1;min-width:0;overflow-y:auto;display:flex;flex-direction:column">
+      <div style="background:white;border-bottom:1px solid var(--hairline);padding:14px var(--s32);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;flex-shrink:0">
         <div>
           <p class="caption-up" style="margin-bottom:4px">Database</p>
           <h1 class="display-md" style="font-weight:400">Pelanggan</h1>
@@ -2650,6 +2660,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
           <button class="btn-primary" style="height:36px;padding:0 16px;font-size:13px">+ Tambah Pelanggan</button>
         </div>
       </div>
+      <div style="padding:var(--s32);flex:1;overflow-y:auto;min-height:0">
 
       <!-- Stats -->
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:var(--s32)">
@@ -2812,6 +2823,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
           </div>
         </div>
       </div>
+      </div>
     </main>
   </div>
 </div>
@@ -2820,7 +2832,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
 <div id="s14" class="screen" style="display:none">
   <div class="flex" style="min-height:100vh">
     <!-- Sidebar -->
-    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 64px);position:sticky;top:64px;align-self:flex-start">
+    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:100vh;position:sticky;top:0;align-self:flex-start">
       <div style="padding:16px 16px 12px;border-bottom:1px solid rgba(255,255,255,.08)">
         <div onclick="show('s1')" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;padding:5px 8px;border-radius:6px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.07)'" onmouseout="this.style.background='transparent'">
           <svg width="13" height="13" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
@@ -2861,8 +2873,8 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
     </aside>
 
     <!-- Main content -->
-    <main style="flex:1;padding:var(--s32);min-width:0;overflow-y:auto">
-      <div class="flex jcsb aic mb32">
+    <main style="flex:1;min-width:0;overflow-y:auto;display:flex;flex-direction:column">
+      <div style="background:white;border-bottom:1px solid var(--hairline);padding:14px var(--s32);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;flex-shrink:0">
         <div>
           <p class="caption-up" style="margin-bottom:4px">Database</p>
           <h1 class="display-md" style="font-weight:400">Pengemudi</h1>
@@ -2872,6 +2884,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
           <button class="btn-primary" style="height:36px;padding:0 16px;font-size:13px">+ Tambah Pengemudi</button>
         </div>
       </div>
+      <div style="padding:var(--s32);flex:1;overflow-y:auto;min-height:0">
 
       <!-- Stats -->
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:var(--s32)">
@@ -3072,6 +3085,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
           <p style="font-size:12px;color:var(--tx-muted);margin-top:4px;text-align:center">Klik untuk mendaftarkan pengemudi baru</p>
         </div>
       </div>
+      </div>
     </main>
   </div>
 </div>
@@ -3080,7 +3094,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
 <div id="s15" class="screen" style="display:none">
   <div class="flex" style="min-height:100vh">
     <!-- Sidebar -->
-    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 64px);position:sticky;top:64px;align-self:flex-start">
+    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:100vh;position:sticky;top:0;align-self:flex-start">
       <div style="padding:16px 16px 12px;border-bottom:1px solid rgba(255,255,255,.08)">
         <div onclick="show('s1')" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;padding:5px 8px;border-radius:6px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.07)'" onmouseout="this.style.background='transparent'">
           <svg width="13" height="13" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
@@ -3121,8 +3135,8 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
     </aside>
 
     <!-- Main content -->
-    <main style="flex:1;padding:var(--s32);min-width:0;overflow-y:auto">
-      <div class="flex jcsb aic mb32">
+    <main style="flex:1;min-width:0;overflow-y:auto;display:flex;flex-direction:column">
+      <div style="background:white;border-bottom:1px solid var(--hairline);padding:14px var(--s32);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;flex-shrink:0">
         <div>
           <p class="caption-up" style="margin-bottom:4px">Keuangan</p>
           <h1 class="display-md" style="font-weight:400">Pembayaran</h1>
@@ -3132,6 +3146,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
           <button class="btn-secondary" style="height:36px;padding:0 16px;font-size:13px">Export Laporan</button>
         </div>
       </div>
+      <div style="padding:var(--s32);flex:1;overflow-y:auto;min-height:0">
 
       <!-- Stats -->
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:var(--s32)">
@@ -3294,6 +3309,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
           </div>
         </div>
       </div>
+      </div>
     </main>
   </div>
 </div>
@@ -3302,7 +3318,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
 <div id="s16" class="screen" style="display:none">
   <div class="flex" style="min-height:100vh">
     <!-- Sidebar -->
-    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 64px);position:sticky;top:64px;align-self:flex-start">
+    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:100vh;position:sticky;top:0;align-self:flex-start">
       <div style="padding:16px 16px 12px;border-bottom:1px solid rgba(255,255,255,.08)">
         <div onclick="show('s1')" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;padding:5px 8px;border-radius:6px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.07)'" onmouseout="this.style.background='transparent'">
           <svg width="13" height="13" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
@@ -3343,8 +3359,8 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
     </aside>
 
     <!-- Main content -->
-    <main style="flex:1;padding:var(--s32);min-width:0;overflow-y:auto">
-      <div class="flex jcsb aic mb32">
+    <main style="flex:1;min-width:0;overflow-y:auto;display:flex;flex-direction:column">
+      <div style="background:white;border-bottom:1px solid var(--hairline);padding:14px var(--s32);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;flex-shrink:0">
         <div>
           <p class="caption-up" style="margin-bottom:4px">Manajemen Armada</p>
           <h1 class="display-md" style="font-weight:400">Perawatan</h1>
@@ -3354,6 +3370,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
           <button class="btn-primary" style="height:36px;padding:0 16px;font-size:13px">+ Catat Perawatan</button>
         </div>
       </div>
+      <div style="padding:var(--s32);flex:1;overflow-y:auto;min-height:0">
 
       <!-- Stats -->
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:var(--s32)">
@@ -3487,6 +3504,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
           </tbody>
         </table>
       </div>
+      </div>
     </main>
   </div>
 </div>
@@ -3496,7 +3514,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
 <div id="s17" class="screen" style="display:none">
   <div class="flex" style="min-height:100vh">
     <!-- Sidebar -->
-    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 64px);position:sticky;top:64px;align-self:flex-start">
+    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:100vh;position:sticky;top:0;align-self:flex-start">
       <div style="padding:16px 16px 12px;border-bottom:1px solid rgba(255,255,255,.08)">
         <div onclick="show('s1')" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;padding:5px 8px;border-radius:6px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.07)'" onmouseout="this.style.background='transparent'">
           <svg width="13" height="13" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
@@ -3509,7 +3527,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
     </aside>
 
     <!-- Main: 3-column CRM layout -->
-    <main style="flex:1;display:flex;min-width:0;overflow:hidden;height:calc(100vh - 64px)">
+    <main style="flex:1;display:flex;min-width:0;overflow:hidden;height:100vh">
 
       <!-- Column 1: Conversation list -->
       <div style="width:300px;flex-shrink:0;border-right:1px solid var(--hairline);display:flex;flex-direction:column;background:white">
