@@ -104,6 +104,7 @@ input, select, textarea { font-family: var(--sans); }
 /* ─── SCREENS ─── */
 .scr { display: none; padding-top: 64px; min-height: 100vh; }
 .scr.act { display: block; }
+.screen { padding-top: 64px; }
 .ascr { display: none; padding-top: 64px; }
 .ascr.act { display: flex; min-height: 100vh; }
 
@@ -404,6 +405,25 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
 </style>
 </head>
 <body>
+
+<!-- MOCKUP SCREEN SWITCHER (prototype helper bar) -->
+<div id="proto-bar" style="position:fixed;bottom:0;left:0;right:0;z-index:9998;background:rgba(12,10,9,.9);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.1);display:flex;align-items:center;padding:0 20px;height:40px;gap:4px;overflow-x:auto">
+  <span style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);font-weight:600;flex-shrink:0;margin-right:8px">Prototype</span>
+  <span style="font-size:10px;color:rgba(255,255,255,.25);flex-shrink:0;margin-right:4px">Website:</span>
+  <button onclick="show('s1')" style="font-size:11px;padding:3px 10px;border:1px solid rgba(255,255,255,.15);border-radius:5px;background:transparent;color:rgba(255,255,255,.6);cursor:pointer;flex-shrink:0">Beranda</button>
+  <button onclick="show('s2')" style="font-size:11px;padding:3px 10px;border:1px solid rgba(255,255,255,.15);border-radius:5px;background:transparent;color:rgba(255,255,255,.6);cursor:pointer;flex-shrink:0">Cari Mobil</button>
+  <button onclick="show('s3')" style="font-size:11px;padding:3px 10px;border:1px solid rgba(255,255,255,.15);border-radius:5px;background:transparent;color:rgba(255,255,255,.6);cursor:pointer;flex-shrink:0">Detail Mobil</button>
+  <button onclick="show('s4')" style="font-size:11px;padding:3px 10px;border:1px solid rgba(255,255,255,.15);border-radius:5px;background:transparent;color:rgba(255,255,255,.6);cursor:pointer;flex-shrink:0">Checkout</button>
+  <button onclick="show('s5')" style="font-size:11px;padding:3px 10px;border:1px solid rgba(255,255,255,.15);border-radius:5px;background:transparent;color:rgba(255,255,255,.6);cursor:pointer;flex-shrink:0">Booking OK</button>
+  <button onclick="show('s6')" style="font-size:11px;padding:3px 10px;border:1px solid rgba(255,255,255,.15);border-radius:5px;background:transparent;color:rgba(255,255,255,.6);cursor:pointer;flex-shrink:0">Pesanan Saya</button>
+  <button onclick="show('s7')" style="font-size:11px;padding:3px 10px;border:1px solid rgba(255,255,255,.15);border-radius:5px;background:transparent;color:rgba(255,255,255,.6);cursor:pointer;flex-shrink:0">Korporat</button>
+  <div style="width:1px;height:20px;background:rgba(255,255,255,.15);margin:0 8px;flex-shrink:0"></div>
+  <span style="font-size:10px;color:rgba(255,255,255,.25);flex-shrink:0;margin-right:4px">Admin:</span>
+  <button onclick="show('s8')" style="font-size:11px;padding:3px 10px;border:1px solid rgba(255,255,255,.15);border-radius:5px;background:transparent;color:rgba(255,255,255,.6);cursor:pointer;flex-shrink:0">Dashboard</button>
+  <button onclick="show('s9')" style="font-size:11px;padding:3px 10px;border:1px solid rgba(255,255,255,.15);border-radius:5px;background:transparent;color:rgba(255,255,255,.6);cursor:pointer;flex-shrink:0">Kalender</button>
+  <button onclick="show('s10')" style="font-size:11px;padding:3px 10px;border:1px solid rgba(255,255,255,.15);border-radius:5px;background:transparent;color:rgba(255,255,255,.6);cursor:pointer;flex-shrink:0">Pemesanan</button>
+  <button onclick="show('s11')" style="font-size:11px;padding:3px 10px;border:1px solid rgba(255,255,255,.15);border-radius:5px;background:transparent;color:rgba(255,255,255,.6);cursor:pointer;flex-shrink:0">Laporan</button>
+</div>
 
 <!-- GLOBAL NAV -->
 <nav class="pnav" id="global-pnav">
@@ -3461,9 +3481,6 @@ function show(id, btn) {
   var isAdmin = adminIds.includes(id);
   t.style.display = isAdmin ? 'flex' : 'block';
   t.classList.add('act');
-  // Hide/show global nav based on context
-  var gnav = document.getElementById('global-pnav');
-  if (gnav) gnav.style.display = isAdmin ? 'none' : 'flex';
   if (isAdmin) renderAdminSidebar(id);
   window.scrollTo(0, 0);
 }
