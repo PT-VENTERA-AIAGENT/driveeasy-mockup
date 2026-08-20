@@ -437,6 +437,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
     <button onclick="show('s14')" class="pbtn pbtn-admin">Pengemudi</button>
     <button onclick="show('s15')" class="pbtn pbtn-admin">Pembayaran</button>
     <button onclick="show('s16')" class="pbtn pbtn-admin">Perawatan</button>
+    <button onclick="show('s17')" class="pbtn pbtn-admin">CRM & Chat</button>
   </div>
 </div>
 
@@ -3490,6 +3491,322 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
   </div>
 </div>
 
+
+<!-- S17: CRM & Chat Management -->
+<div id="s17" class="screen" style="display:none">
+  <div class="flex" style="min-height:100vh">
+    <!-- Sidebar -->
+    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 64px);position:sticky;top:64px;align-self:flex-start">
+      <div style="padding:16px 16px 12px;border-bottom:1px solid rgba(255,255,255,.08)">
+        <div onclick="show('s1')" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;padding:5px 8px;border-radius:6px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.07)'" onmouseout="this.style.background='transparent'">
+          <svg width="13" height="13" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+          <span style="font-size:11px;color:rgba(255,255,255,.4)">Kembali ke Website</span>
+        </div>
+        <div class="logo" style="font-family:var(--serif);font-size:19px;font-style:italic;color:white;line-height:1">DriveEasy.</div>
+        <p style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:4px;font-weight:600">Admin Panel</p>
+      </div>
+      <nav style="padding:12px 8px"></nav>
+    </aside>
+
+    <!-- Main: 3-column CRM layout -->
+    <main style="flex:1;display:flex;min-width:0;overflow:hidden;height:calc(100vh - 64px)">
+
+      <!-- Column 1: Conversation list -->
+      <div style="width:300px;flex-shrink:0;border-right:1px solid var(--hairline);display:flex;flex-direction:column;background:white">
+        <!-- Header -->
+        <div style="padding:16px;border-bottom:1px solid var(--hairline)">
+          <div class="flex jcsb aic" style="margin-bottom:12px">
+            <p style="font-size:15px;font-weight:700;color:var(--tx-ink)">Pesan Masuk</p>
+            <span style="background:#ef4444;color:white;font-size:10px;font-weight:700;padding:2px 7px;border-radius:9999px">12</span>
+          </div>
+          <input type="text" placeholder="Cari nama atau pesan..." style="width:100%;padding:8px 12px;border:1px solid var(--hairline);border-radius:8px;font-size:13px;background:var(--canvas);outline:none;box-sizing:border-box">
+        </div>
+        <!-- Filter tabs -->
+        <div style="display:flex;border-bottom:1px solid var(--hairline);padding:0 12px">
+          <button style="padding:9px 12px;font-size:12px;font-weight:600;color:var(--tx-ink);border:none;background:none;border-bottom:2px solid var(--tx-ink);cursor:pointer">Semua</button>
+          <button style="padding:9px 12px;font-size:12px;color:var(--tx-muted);border:none;background:none;border-bottom:2px solid transparent;cursor:pointer">Belum Dibaca</button>
+          <button style="padding:9px 12px;font-size:12px;color:var(--tx-muted);border:none;background:none;border-bottom:2px solid transparent;cursor:pointer">AI Bot</button>
+        </div>
+        <!-- Conversation items -->
+        <div style="overflow-y:auto;flex:1">
+          <!-- Active/selected -->
+          <div style="padding:12px 14px;background:#f0f9ff;border-left:3px solid #0ea5e9;cursor:pointer">
+            <div class="flex jcsb aic" style="margin-bottom:4px">
+              <div class="flex gap8 aic">
+                <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#6366f1);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;flex-shrink:0">BS</div>
+                <div>
+                  <p style="font-size:13px;font-weight:600;color:var(--tx-ink)">Budi Santoso</p>
+                  <p style="font-size:11px;color:var(--tx-muted)">+62 812-3456-7890</p>
+                </div>
+              </div>
+              <div style="text-align:right">
+                <p style="font-size:11px;color:var(--tx-muted)">09:42</p>
+                <span style="background:#ef4444;color:white;font-size:9px;font-weight:700;padding:1px 6px;border-radius:9999px">3</span>
+              </div>
+            </div>
+            <p style="font-size:12px;color:var(--tx-muted);margin-left:44px">Kak mau tanya innova tanggal 25?</p>
+          </div>
+
+          <div style="padding:12px 14px;border-bottom:1px solid var(--hairline);cursor:pointer">
+            <div class="flex jcsb aic" style="margin-bottom:4px">
+              <div class="flex gap8 aic">
+                <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#10b981,#06b6d4);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;flex-shrink:0">SW</div>
+                <div>
+                  <p style="font-size:13px;font-weight:600;color:var(--tx-ink)">Siti Wulandari</p>
+                  <p style="font-size:11px;color:var(--tx-muted)">+62 878-9012-3456</p>
+                </div>
+              </div>
+              <div style="text-align:right">
+                <p style="font-size:11px;color:var(--tx-muted)">09:15</p>
+                <span style="background:#ef4444;color:white;font-size:9px;font-weight:700;padding:1px 6px;border-radius:9999px">1</span>
+              </div>
+            </div>
+            <p style="font-size:12px;color:var(--tx-muted);margin-left:44px">Oke kak, saya transfer sekarang ya</p>
+          </div>
+
+          <div style="padding:12px 14px;border-bottom:1px solid var(--hairline);cursor:pointer">
+            <div class="flex jcsb aic" style="margin-bottom:4px">
+              <div class="flex gap8 aic">
+                <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#ef4444);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;flex-shrink:0">AR</div>
+                <div>
+                  <p style="font-size:13px;font-weight:600;color:var(--tx-ink)">Ahmad Rizky</p>
+                  <p style="font-size:11px;color:var(--tx-muted)">+62 857-1234-5678</p>
+                </div>
+              </div>
+              <div style="text-align:right">
+                <p style="font-size:11px;color:var(--tx-muted)">08:30</p>
+              </div>
+            </div>
+            <p style="font-size:12px;color:var(--tx-muted);margin-left:44px">Bot: Terima kasih! Booking CAR-200820...</p>
+          </div>
+
+          <div style="padding:12px 14px;border-bottom:1px solid var(--hairline);cursor:pointer">
+            <div class="flex jcsb aic" style="margin-bottom:4px">
+              <div class="flex gap8 aic">
+                <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#8b5cf6,#ec4899);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;flex-shrink:0">DP</div>
+                <div>
+                  <p style="font-size:13px;font-weight:600;color:var(--tx-ink)">Dina Pratiwi</p>
+                  <p style="font-size:11px;color:var(--tx-muted)">+62 821-5678-9012</p>
+                </div>
+              </div>
+              <div style="text-align:right">
+                <p style="font-size:11px;color:var(--tx-muted)">Kemarin</p>
+                <span style="background:#ef4444;color:white;font-size:9px;font-weight:700;padding:1px 6px;border-radius:9999px">5</span>
+              </div>
+            </div>
+            <p style="font-size:12px;color:var(--tx-muted);margin-left:44px">Halo kak, mau tanya soal driver...</p>
+          </div>
+
+          <div style="padding:12px 14px;border-bottom:1px solid var(--hairline);cursor:pointer">
+            <div class="flex jcsb aic" style="margin-bottom:4px">
+              <div class="flex gap8 aic">
+                <div style="width:36px;height:36px;border-radius:50%;background:#e7e5e4;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#78716c;flex-shrink:0">MB</div>
+                <div>
+                  <p style="font-size:13px;font-weight:600;color:var(--tx-ink)">PT Maju Bersama</p>
+                  <p style="font-size:11px;color:var(--tx-muted)">+62 21-7890-1234</p>
+                </div>
+              </div>
+              <div style="text-align:right">
+                <p style="font-size:11px;color:var(--tx-muted)">Kemarin</p>
+              </div>
+            </div>
+            <p style="font-size:12px;color:var(--tx-muted);margin-left:44px">Kami butuh 3 unit innova bulan Sep</p>
+          </div>
+
+          <div style="padding:12px 14px;border-bottom:1px solid var(--hairline);cursor:pointer">
+            <div class="flex jcsb aic" style="margin-bottom:4px">
+              <div class="flex gap8 aic">
+                <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#14b8a6,#0ea5e9);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;flex-shrink:0">RH</div>
+                <div>
+                  <p style="font-size:13px;font-weight:600;color:var(--tx-ink)">Reza Hidayat</p>
+                  <p style="font-size:11px;color:var(--tx-muted)">+62 813-4567-8901</p>
+                </div>
+              </div>
+              <div style="text-align:right">
+                <p style="font-size:11px;color:var(--tx-muted)">19 Agu</p>
+              </div>
+            </div>
+            <p style="font-size:12px;color:var(--tx-muted);margin-left:44px">Sudah lunas ya kak, thanks!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 2: Chat window -->
+      <div style="flex:1;display:flex;flex-direction:column;background:#f5f5f4;min-width:0">
+        <!-- Chat header -->
+        <div style="padding:14px 20px;background:white;border-bottom:1px solid var(--hairline);display:flex;align-items:center;justify-content:space-between">
+          <div class="flex gap10 aic">
+            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#6366f1);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:white">BS</div>
+            <div>
+              <p style="font-size:14px;font-weight:700;color:var(--tx-ink)">Budi Santoso</p>
+              <div class="flex gap6 aic">
+                <div style="width:7px;height:7px;border-radius:50%;background:#22c55e"></div>
+                <span style="font-size:12px;color:var(--tx-muted)">Online via WhatsApp</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex gap8">
+            <span style="background:#dcfce7;color:#16a34a;font-size:11px;font-weight:600;padding:3px 10px;border-radius:9999px">VIP</span>
+            <span style="background:#dbeafe;color:#2563eb;font-size:11px;font-weight:600;padding:3px 10px;border-radius:9999px">47 Booking</span>
+            <button style="padding:6px 12px;border:1px solid var(--hairline);border-radius:8px;font-size:12px;background:white;cursor:pointer;color:var(--tx-ink)">Lihat Profil</button>
+          </div>
+        </div>
+
+        <!-- AI Bot status bar -->
+        <div style="padding:8px 20px;background:#fffbeb;border-bottom:1px solid #fef3c7;display:flex;align-items:center;justify-content:space-between">
+          <div class="flex gap8 aic">
+            <div style="width:8px;height:8px;border-radius:50%;background:#22c55e"></div>
+            <span style="font-size:12px;color:#92400e">AI Bot aktif — menangani percakapan otomatis</span>
+          </div>
+          <button style="padding:4px 12px;border:1px solid #d97706;border-radius:6px;font-size:11px;font-weight:600;background:white;cursor:pointer;color:#d97706">Ambil Alih</button>
+        </div>
+
+        <!-- Messages -->
+        <div style="flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:12px">
+          <!-- Incoming -->
+          <div style="display:flex;gap:8px;align-items:flex-end">
+            <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#6366f1);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;flex-shrink:0">BS</div>
+            <div style="max-width:65%">
+              <div style="background:white;padding:10px 14px;border-radius:0 12px 12px 12px;font-size:13px;color:var(--tx-ink);box-shadow:0 1px 2px rgba(0,0,0,.06)">Halo kak, mau tanya apakah Innova Reborn masih available tanggal 25-27 Agustus? Buat 3 hari sama driver ya</div>
+              <p style="font-size:10px;color:var(--tx-muted);margin-top:3px;padding-left:4px">09:38</p>
+            </div>
+          </div>
+
+          <!-- Bot reply -->
+          <div style="display:flex;gap:8px;align-items:flex-end;flex-direction:row-reverse">
+            <div style="width:28px;height:28px;border-radius:50%;background:#1e3a5f;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="14" height="14" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7H3a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/><path d="M3 14v7h18v-7"/></svg>
+            </div>
+            <div style="max-width:65%">
+              <div style="background:#0f172a;padding:10px 14px;border-radius:12px 0 12px 12px;font-size:13px;color:white;box-shadow:0 1px 2px rgba(0,0,0,.15)">
+                Halo Pak Budi! 👋 Innova Reborn tersedia tanggal 25-27 Agustus. Untuk 3 hari + driver:<br><br>
+                • Sewa: Rp650.000 × 3 = Rp1.950.000<br>
+                • Driver: Rp200.000 × 3 = Rp600.000<br>
+                • <strong>Total: Rp2.550.000</strong><br><br>
+                Mau langsung booking, Pak?
+              </div>
+              <p style="font-size:10px;color:var(--tx-muted);margin-top:3px;text-align:right;padding-right:4px">09:38 · AI Bot</p>
+            </div>
+          </div>
+
+          <!-- Incoming -->
+          <div style="display:flex;gap:8px;align-items:flex-end">
+            <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#6366f1);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;flex-shrink:0">BS</div>
+            <div style="max-width:65%">
+              <div style="background:white;padding:10px 14px;border-radius:0 12px 12px 12px;font-size:13px;color:var(--tx-ink);box-shadow:0 1px 2px rgba(0,0,0,.06)">Boleh, langsung booking ya kak. Pickup di Bandara Soetta jam 08.00</div>
+              <p style="font-size:10px;color:var(--tx-muted);margin-top:3px;padding-left:4px">09:41</p>
+            </div>
+          </div>
+
+          <!-- Bot reply -->
+          <div style="display:flex;gap:8px;align-items:flex-end;flex-direction:row-reverse">
+            <div style="width:28px;height:28px;border-radius:50%;background:#1e3a5f;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="14" height="14" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7H3a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/><path d="M3 14v7h18v-7"/></svg>
+            </div>
+            <div style="max-width:65%">
+              <div style="background:#0f172a;padding:10px 14px;border-radius:12px 0 12px 12px;font-size:13px;color:white;box-shadow:0 1px 2px rgba(0,0,0,.15)">Siap Pak Budi! Booking berhasil dibuat:<br><br><strong>CAR-250820-5102</strong><br>Innova Reborn · 25-27 Agu · Airport Pickup 08.00<br>Total: Rp2.550.000<br><br>Silakan transfer ke BCA 1234567890 a/n DriveEasy, atau klik link pembayaran:</div>
+              <p style="font-size:10px;color:var(--tx-muted);margin-top:3px;text-align:right;padding-right:4px">09:42 · AI Bot</p>
+            </div>
+          </div>
+
+          <!-- Incoming latest -->
+          <div style="display:flex;gap:8px;align-items:flex-end">
+            <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#6366f1);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;flex-shrink:0">BS</div>
+            <div style="max-width:65%">
+              <div style="background:white;padding:10px 14px;border-radius:0 12px 12px 12px;font-size:13px;color:var(--tx-ink);box-shadow:0 1px 2px rgba(0,0,0,.06)">Kak mau tanya innova tanggal 25?</div>
+              <p style="font-size:10px;color:var(--tx-muted);margin-top:3px;padding-left:4px">09:42 · Baru</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input bar -->
+        <div style="padding:12px 16px;background:white;border-top:1px solid var(--hairline)">
+          <div style="display:flex;gap:8px;align-items:center;background:var(--canvas);border:1px solid var(--hairline);border-radius:12px;padding:8px 12px">
+            <input type="text" placeholder="Ketik balasan atau pilih template..." style="flex:1;border:none;background:transparent;font-size:13px;outline:none;color:var(--tx-ink)">
+            <button style="padding:6px 16px;background:var(--ink-dark);color:white;border:none;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer">Kirim</button>
+          </div>
+          <div class="flex gap8" style="margin-top:8px">
+            <button style="font-size:11px;padding:4px 10px;border:1px solid var(--hairline);border-radius:6px;background:white;cursor:pointer;color:var(--tx-muted)">Template Konfirmasi</button>
+            <button style="font-size:11px;padding:4px 10px;border:1px solid var(--hairline);border-radius:6px;background:white;cursor:pointer;color:var(--tx-muted)">Link Pembayaran</button>
+            <button style="font-size:11px;padding:4px 10px;border:1px solid var(--hairline);border-radius:6px;background:white;cursor:pointer;color:var(--tx-muted)">Jadwal Booking</button>
+            <button style="font-size:11px;padding:4px 10px;border:1px solid var(--hairline);border-radius:6px;background:white;cursor:pointer;color:var(--tx-muted)">Tolak / Reschedule</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 3: Customer profile & classification -->
+      <div style="width:260px;flex-shrink:0;border-left:1px solid var(--hairline);overflow-y:auto;background:white">
+        <!-- Profile -->
+        <div style="padding:20px 16px;border-bottom:1px solid var(--hairline);text-align:center">
+          <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#6366f1);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:white;margin:0 auto 10px">BS</div>
+          <p style="font-size:15px;font-weight:700;color:var(--tx-ink)">Budi Santoso</p>
+          <p style="font-size:12px;color:var(--tx-muted);margin-bottom:10px">Pelanggan sejak Jan 2024</p>
+          <div class="flex" style="justify-content:center;gap:6px;flex-wrap:wrap">
+            <span style="background:#dcfce7;color:#16a34a;font-size:11px;font-weight:600;padding:3px 10px;border-radius:9999px">VIP</span>
+            <span style="background:#dbeafe;color:#2563eb;font-size:11px;font-weight:600;padding:3px 10px;border-radius:9999px">Loyal</span>
+            <span style="background:#ede9fe;color:#7c3aed;font-size:11px;font-weight:600;padding:3px 10px;border-radius:9999px">High Value</span>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div style="padding:16px;border-bottom:1px solid var(--hairline)">
+          <p style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--tx-muted);margin-bottom:12px">Statistik</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div style="background:var(--canvas);padding:10px;border-radius:8px;text-align:center">
+              <p style="font-size:20px;font-weight:700;color:var(--tx-ink)">47</p>
+              <p style="font-size:10px;color:var(--tx-muted)">Total Booking</p>
+            </div>
+            <div style="background:var(--canvas);padding:10px;border-radius:8px;text-align:center">
+              <p style="font-size:20px;font-weight:700;color:var(--ok)">⭐ 4.9</p>
+              <p style="font-size:10px;color:var(--tx-muted)">Rating</p>
+            </div>
+            <div style="background:var(--canvas);padding:10px;border-radius:8px;text-align:center">
+              <p style="font-size:15px;font-weight:700;color:var(--tx-ink)">Rp42jt</p>
+              <p style="font-size:10px;color:var(--tx-muted)">Total Belanja</p>
+            </div>
+            <div style="background:var(--canvas);padding:10px;border-radius:8px;text-align:center">
+              <p style="font-size:15px;font-weight:700;color:var(--tx-ink)">0</p>
+              <p style="font-size:10px;color:var(--tx-muted)">Pembatalan</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Classification -->
+        <div style="padding:16px;border-bottom:1px solid var(--hairline)">
+          <p style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--tx-muted);margin-bottom:12px">Klasifikasi</p>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--tx-ink)"><input type="checkbox" checked style="accent-color:#16a34a"> VIP</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--tx-ink)"><input type="checkbox" checked style="accent-color:#16a34a"> Pelanggan Loyal</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--tx-ink)"><input type="checkbox"> Corporate</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--tx-ink)"><input type="checkbox" checked style="accent-color:#16a34a"> High Value</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--tx-ink)"><input type="checkbox"> Perlu Follow-up</label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--tx-ink)"><input type="checkbox"> Blacklist</label>
+          </div>
+          <button style="width:100%;margin-top:12px;padding:8px;border:1px solid var(--hairline);border-radius:8px;font-size:12px;font-weight:600;background:var(--ink-dark);color:white;cursor:pointer">Simpan Klasifikasi</button>
+        </div>
+
+        <!-- Active booking -->
+        <div style="padding:16px;border-bottom:1px solid var(--hairline)">
+          <p style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--tx-muted);margin-bottom:12px">Booking Terkait</p>
+          <div style="background:var(--canvas);padding:12px;border-radius:8px;border-left:3px solid #3b82f6">
+            <p style="font-size:12px;font-weight:700;color:var(--tx-ink)">CAR-200820-4821</p>
+            <p style="font-size:12px;color:var(--tx-muted)">Innova Reborn · 21–23 Agu</p>
+            <span style="background:#dbeafe;color:#2563eb;font-size:10px;font-weight:600;padding:2px 8px;border-radius:9999px;margin-top:4px;display:inline-block">Aktif</span>
+          </div>
+        </div>
+
+        <!-- Notes -->
+        <div style="padding:16px">
+          <p style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--tx-muted);margin-bottom:8px">Catatan Internal</p>
+          <textarea placeholder="Tambah catatan tentang pelanggan ini..." style="width:100%;height:80px;padding:8px;border:1px solid var(--hairline);border-radius:8px;font-size:12px;color:var(--tx-ink);background:var(--canvas);resize:none;outline:none;box-sizing:border-box">Pelanggan prioritas. Selalu pesan Innova. Suka airport pickup Soetta.</textarea>
+          <button style="width:100%;margin-top:8px;padding:7px;border:1px solid var(--hairline);border-radius:8px;font-size:12px;font-weight:600;background:white;cursor:pointer;color:var(--tx-ink)">Simpan Catatan</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
 <script>
 var ADMIN_NAV = [
   {id:'s8',  label:'Dashboard', svg:'<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>'},
@@ -3500,7 +3817,8 @@ var ADMIN_NAV = [
   {id:'s9',  label:'Kalender',  svg:'<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>'},
   {id:'s15', label:'Pembayaran',svg:'<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>'},
   {id:'s16', label:'Perawatan', svg:'<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>'},
-  {id:'s11', label:'Laporan',   svg:'<line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>'}
+  {id:'s17', label:'CRM & Chat', svg:'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>'},
+  {id:'s11', label:'Laporan',   svg:'<line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"\/>'}
 ];
 
 function renderAdminSidebar(activeId) {
@@ -3528,7 +3846,7 @@ function show(id, btn) {
   });
   var t = document.getElementById(id);
   if (!t) return;
-  var adminIds = ['s8','s9','s10','s11','s12','s13','s14','s15','s16'];
+  var adminIds = ['s8','s9','s10','s11','s12','s13','s14','s15','s16','s17'];
   var isAdmin = adminIds.includes(id);
   t.style.display = isAdmin ? 'flex' : 'block';
   t.style.paddingTop = isAdmin ? '0' : '';
