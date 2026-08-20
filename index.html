@@ -62,34 +62,49 @@ input, select, textarea { font-family: var(--sans); }
 /* ─── TOP TAB BAR ─── */
 .tnav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  height: 44px; background: var(--ink-dark);
-  display: flex; align-items: center; padding: 0 12px; gap: 2px;
-  overflow-x: auto;
+  height: 52px; background: rgba(12,10,9,.96);
+  backdrop-filter: blur(12px);
+  display: grid; grid-template-columns: 180px 1fr 180px; align-items: center;
+  padding: 0 24px; gap: 0;
+  border-bottom: 1px solid rgba(255,255,255,.07);
 }
 .tnav::-webkit-scrollbar { height: 0; }
-.tdiv {
-  font-family: var(--sans); font-size: 9px; font-weight: 600;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--tx-soft); padding: 0 10px; flex-shrink: 0;
+.tnav-logo {
+  font-family: var(--serif); font-size: 20px; font-style: italic;
+  color: white; letter-spacing: -.01em;
 }
+.tnav-center {
+  display: flex; align-items: center; justify-content: center; gap: 2px;
+}
+.tnav-right {
+  display: flex; align-items: center; justify-content: flex-end; gap: 8px;
+}
+.tdiv { display: none; }
 .tbtn {
-  padding: 5px 12px; border: none; background: transparent;
-  color: var(--tx-soft); font-family: var(--sans); font-size: 12px;
+  padding: 6px 14px; border: none; background: transparent;
+  color: rgba(255,255,255,.5); font-family: var(--sans); font-size: 12.5px;
   font-weight: 500; border-radius: var(--r6); white-space: nowrap;
-  transition: all .15s; position: relative; flex-shrink: 0;
+  transition: all .15s; position: relative; flex-shrink: 0; cursor: pointer;
 }
-.tbtn:hover { color: white; background: rgba(255,255,255,.08); }
-.tbtn.act { color: white; background: rgba(255,255,255,.12); }
+.tbtn:hover { color: white; background: rgba(255,255,255,.07); }
+.tbtn.act { color: white; }
 .tbtn.act::after {
   content: ''; position: absolute; bottom: -1px; left: 50%;
-  transform: translateX(-50%); width: 16px; height: 2px;
+  transform: translateX(-50%); width: 20px; height: 2px;
   background: white; border-radius: 1px;
 }
+.tbtn-admin {
+  padding: 7px 14px; border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.8); font-family: var(--sans); font-size: 12px;
+  font-weight: 500; border-radius: 8px; white-space: nowrap; cursor: pointer;
+  transition: all .15s; display: flex; align-items: center; gap: 6px;
+}
+.tbtn-admin:hover { background: rgba(255,255,255,.12); color: white; border-color: rgba(255,255,255,.3); }
 
 /* ─── SCREENS ─── */
-.scr { display: none; padding-top: 44px; min-height: 100vh; }
+.scr { display: none; padding-top: 52px; min-height: 100vh; }
 .scr.act { display: block; }
-.ascr { display: none; padding-top: 44px; }
+.ascr { display: none; padding-top: 52px; }
 .ascr.act { display: flex; min-height: 100vh; }
 
 /* ─── TYPOGRAPHY SCALE (ElevenLabs) ─── */
@@ -392,19 +407,22 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
 
 <!-- TAB NAVIGATION -->
 <nav class="tnav">
-  <div class="tdiv">WEB</div>
-  <button class="tbtn act" onclick="show('s1',this)">Homepage</button>
-  <button class="tbtn" onclick="show('s2',this)">Search Cars</button>
-  <button class="tbtn" onclick="show('s3',this)">Car Detail</button>
-  <button class="tbtn" onclick="show('s4',this)">Checkout</button>
-  <button class="tbtn" onclick="show('s5',this)">Booking OK</button>
-  <button class="tbtn" onclick="show('s6',this)">My Bookings</button>
-  <button class="tbtn" onclick="show('s7',this)">Corporate</button>
-  <div class="tdiv">ADMIN</div>
-  <button class="tbtn" onclick="show('s8',this)">Dashboard</button>
-  <button class="tbtn" onclick="show('s9',this)">Fleet Cal</button>
-  <button class="tbtn" onclick="show('s10',this)">Bookings</button>
-  <button class="tbtn" onclick="show('s11',this)">Analytics</button>
+  <div class="tnav-logo">DriveEasy.</div>
+  <div class="tnav-center">
+    <button class="tbtn act" onclick="show('s1',this)">Beranda</button>
+    <button class="tbtn" onclick="show('s2',this)">Cari Mobil</button>
+    <button class="tbtn" onclick="show('s3',this)">Detail Kendaraan</button>
+    <button class="tbtn" onclick="show('s4',this)">Checkout</button>
+    <button class="tbtn" onclick="show('s5',this)">Konfirmasi</button>
+    <button class="tbtn" onclick="show('s6',this)">Pesanan Saya</button>
+    <button class="tbtn" onclick="show('s7',this)">Korporat</button>
+  </div>
+  <div class="tnav-right">
+    <button class="tbtn-admin" onclick="show('s8',this)">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Dashboard Admin
+    </button>
+  </div>
 </nav>
 
 <!-- ═══════════ S1: HOMEPAGE ═══════════ -->
@@ -1640,7 +1658,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
 <div id="s8" class="screen" style="display:none">
   <div class="flex" style="min-height:100vh">
     <!-- Sidebar -->
-    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 40px);position:sticky;top:40px;align-self:flex-start">
+    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 52px);position:sticky;top:52px;align-self:flex-start">
       <div style="padding:20px 16px;border-bottom:1px solid rgba(255,255,255,.08)">
         <div class="logo" style="font-family:var(--serif);font-size:18px;font-style:italic;color:white">DriveEasy.</div>
         <p style="font-size:11px;color:rgba(255,255,255,.35);margin-top:4px">Admin Panel</p>
@@ -1689,28 +1707,74 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
         </div>
       </div>
 
-      <!-- Metric cards -->
+      <!-- KPI Cards — redesigned -->
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:var(--s32)">
-        <div class="card" style="padding:var(--s20)">
-          <p class="caption-up" style="margin-bottom:var(--s8)">Booking Hari Ini</p>
-          <p style="font-size:36px;font-weight:700;color:var(--tx-ink);line-height:1">24</p>
-          <p style="font-size:13px;color:var(--ok);margin-top:6px">↑ 12% vs kemarin</p>
+
+        <!-- Card 1: Booking -->
+        <div style="border-radius:16px;padding:22px 24px;background:var(--ink-dark);color:white;position:relative;overflow:hidden">
+          <div style="position:absolute;top:-20px;right:-20px;width:90px;height:90px;border-radius:50%;background:rgba(255,255,255,.05)"></div>
+          <div style="position:absolute;bottom:-30px;right:10px;width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.04)"></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+            <span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);font-weight:600">Booking Hari Ini</span>
+            <div style="width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center">
+              <svg width="16" height="16" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg>
+            </div>
+          </div>
+          <p style="font-size:42px;font-weight:800;color:white;line-height:1;letter-spacing:-2px;margin-bottom:10px">24</p>
+          <div style="display:flex;align-items:center;gap:6px">
+            <span style="font-size:11px;background:rgba(74,222,128,.2);color:#4ade80;padding:2px 8px;border-radius:9999px;font-weight:600">↑ 12%</span>
+            <span style="font-size:12px;color:rgba(255,255,255,.4)">vs kemarin</span>
+          </div>
         </div>
-        <div class="card" style="padding:var(--s20)">
-          <p class="caption-up" style="margin-bottom:var(--s8)">Rental Aktif</p>
-          <p style="font-size:36px;font-weight:700;color:var(--tx-ink);line-height:1">38</p>
-          <p style="font-size:13px;color:var(--tx-muted);margin-top:6px">dari 55 unit total</p>
+
+        <!-- Card 2: Rental Aktif -->
+        <div style="border-radius:16px;padding:22px 24px;background:white;border:1px solid var(--hairline);position:relative;overflow:hidden">
+          <div style="position:absolute;top:0;right:0;width:80px;height:80px;background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-radius:0 16px 0 60px"></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+            <span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--tx-muted);font-weight:600">Rental Aktif</span>
+            <div style="width:32px;height:32px;border-radius:8px;background:#dcfce7;display:flex;align-items:center;justify-content:center">
+              <svg width="16" height="16" fill="none" stroke="#16a34a" stroke-width="1.5" viewBox="0 0 24 24"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3m4 0h-8a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2z"/></svg>
+            </div>
+          </div>
+          <p style="font-size:42px;font-weight:800;color:var(--tx-ink);line-height:1;letter-spacing:-2px;margin-bottom:10px">38</p>
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="flex:1;height:3px;background:#e7e5e4;border-radius:2px"><div style="width:69%;height:100%;background:#16a34a;border-radius:2px"></div></div>
+            <span style="font-size:12px;color:var(--tx-muted)">69% dari 55 unit</span>
+          </div>
         </div>
-        <div class="card" style="padding:var(--s20)">
-          <p class="caption-up" style="margin-bottom:var(--s8)">Kendaraan Tersedia</p>
-          <p style="font-size:36px;font-weight:700;color:var(--tx-ink);line-height:1">17</p>
-          <p style="font-size:13px;color:var(--tx-muted);margin-top:6px">69% utilitas armada</p>
+
+        <!-- Card 3: Kendaraan Tersedia -->
+        <div style="border-radius:16px;padding:22px 24px;background:white;border:1px solid var(--hairline);position:relative;overflow:hidden">
+          <div style="position:absolute;top:0;right:0;width:80px;height:80px;background:linear-gradient(135deg,#eff6ff,#dbeafe);border-radius:0 16px 0 60px"></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+            <span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--tx-muted);font-weight:600">Tersedia Sekarang</span>
+            <div style="width:32px;height:32px;border-radius:8px;background:#dbeafe;display:flex;align-items:center;justify-content:center">
+              <svg width="16" height="16" fill="none" stroke="#2563eb" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+          </div>
+          <p style="font-size:42px;font-weight:800;color:var(--tx-ink);line-height:1;letter-spacing:-2px;margin-bottom:10px">17</p>
+          <div style="display:flex;align-items:center;gap:6px">
+            <span style="font-size:11px;background:#fee2e2;color:#dc2626;padding:2px 8px;border-radius:9999px;font-weight:600">4 perawatan</span>
+            <span style="font-size:12px;color:var(--tx-muted)">tidak tersedia</span>
+          </div>
         </div>
-        <div class="card" style="padding:var(--s20)">
-          <p class="caption-up" style="margin-bottom:var(--s8)">Pendapatan Hari Ini</p>
-          <p style="font-size:28px;font-weight:700;color:var(--tx-ink);line-height:1.1">Rp18,75jt</p>
-          <p style="font-size:13px;color:var(--ok);margin-top:6px">↑ 8% vs kemarin</p>
+
+        <!-- Card 4: Pendapatan -->
+        <div style="border-radius:16px;padding:22px 24px;background:linear-gradient(135deg,#292524 0%,#1c1917 100%);color:white;position:relative;overflow:hidden">
+          <div style="position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(245,158,11,.15),transparent 60%)"></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;position:relative">
+            <span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);font-weight:600">Pendapatan Hari Ini</span>
+            <div style="width:32px;height:32px;border-radius:8px;background:rgba(245,158,11,.2);display:flex;align-items:center;justify-content:center">
+              <svg width="16" height="16" fill="none" stroke="#f59e0b" stroke-width="1.5" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+          </div>
+          <p style="font-size:30px;font-weight:800;color:white;line-height:1.1;letter-spacing:-1px;margin-bottom:10px;position:relative">Rp18,75jt</p>
+          <div style="display:flex;align-items:center;gap:6px;position:relative">
+            <span style="font-size:11px;background:rgba(245,158,11,.25);color:#fbbf24;padding:2px 8px;border-radius:9999px;font-weight:600">↑ 8%</span>
+            <span style="font-size:12px;color:rgba(255,255,255,.4)">vs kemarin</span>
+          </div>
         </div>
+
       </div>
 
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:var(--s24)">
@@ -1830,7 +1894,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
 <!-- ===== SCREEN 9: FLEET CALENDAR ===== -->
 <div id="s9" class="screen" style="display:none">
   <div class="flex" style="min-height:100vh">
-    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 40px);position:sticky;top:40px;align-self:flex-start">
+    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 52px);position:sticky;top:52px;align-self:flex-start">
       <div style="padding:20px 16px;border-bottom:1px solid rgba(255,255,255,.08)">
         <div class="logo" style="font-family:var(--serif);font-size:18px;font-style:italic;color:white">DriveEasy.</div>
         <p style="font-size:11px;color:rgba(255,255,255,.35);margin-top:4px">Admin Panel</p>
@@ -1933,7 +1997,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
 <!-- ===== SCREEN 10: BOOKING MANAGEMENT ===== -->
 <div id="s10" class="screen" style="display:none">
   <div class="flex" style="min-height:100vh">
-    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 40px);position:sticky;top:40px;align-self:flex-start">
+    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 52px);position:sticky;top:52px;align-self:flex-start">
       <div style="padding:20px 16px;border-bottom:1px solid rgba(255,255,255,.08)">
         <div class="logo" style="font-family:var(--serif);font-size:18px;font-style:italic;color:white">DriveEasy.</div>
         <p style="font-size:11px;color:rgba(255,255,255,.35);margin-top:4px">Admin Panel</p>
@@ -2056,7 +2120,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
 <!-- ===== SCREEN 11: ANALYTICS / FLEET INTELLIGENCE ===== -->
 <div id="s11" class="screen" style="display:none">
   <div class="flex" style="min-height:100vh">
-    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 40px);position:sticky;top:40px;align-self:flex-start">
+    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 52px);position:sticky;top:52px;align-self:flex-start">
       <div style="padding:20px 16px;border-bottom:1px solid rgba(255,255,255,.08)">
         <div class="logo" style="font-family:var(--serif);font-size:18px;font-style:italic;color:white">DriveEasy.</div>
         <p style="font-size:11px;color:rgba(255,255,255,.35);margin-top:4px">Admin Panel</p>
@@ -2243,7 +2307,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
 <div id="s12" class="screen" style="display:none">
   <div class="flex" style="min-height:100vh">
     <!-- Sidebar -->
-    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 40px);position:sticky;top:40px;align-self:flex-start">
+    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 52px);position:sticky;top:52px;align-self:flex-start">
       <div style="padding:20px 16px;border-bottom:1px solid rgba(255,255,255,.08)">
         <div class="logo" style="font-family:var(--serif);font-size:18px;font-style:italic;color:white">DriveEasy.</div>
         <p style="font-size:11px;color:rgba(255,255,255,.35);margin-top:4px">Admin Panel</p>
@@ -2493,7 +2557,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
 <div id="s13" class="screen" style="display:none">
   <div class="flex" style="min-height:100vh">
     <!-- Sidebar -->
-    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 40px);position:sticky;top:40px;align-self:flex-start">
+    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 52px);position:sticky;top:52px;align-self:flex-start">
       <div style="padding:20px 16px;border-bottom:1px solid rgba(255,255,255,.08)">
         <div class="logo" style="font-family:var(--serif);font-size:18px;font-style:italic;color:white">DriveEasy.</div>
         <p style="font-size:11px;color:rgba(255,255,255,.35);margin-top:4px">Admin Panel</p>
@@ -2711,7 +2775,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
 <div id="s14" class="screen" style="display:none">
   <div class="flex" style="min-height:100vh">
     <!-- Sidebar -->
-    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 40px);position:sticky;top:40px;align-self:flex-start">
+    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 52px);position:sticky;top:52px;align-self:flex-start">
       <div style="padding:20px 16px;border-bottom:1px solid rgba(255,255,255,.08)">
         <div class="logo" style="font-family:var(--serif);font-size:18px;font-style:italic;color:white">DriveEasy.</div>
         <p style="font-size:11px;color:rgba(255,255,255,.35);margin-top:4px">Admin Panel</p>
@@ -2967,7 +3031,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
 <div id="s15" class="screen" style="display:none">
   <div class="flex" style="min-height:100vh">
     <!-- Sidebar -->
-    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 40px);position:sticky;top:40px;align-self:flex-start">
+    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 52px);position:sticky;top:52px;align-self:flex-start">
       <div style="padding:20px 16px;border-bottom:1px solid rgba(255,255,255,.08)">
         <div class="logo" style="font-family:var(--serif);font-size:18px;font-style:italic;color:white">DriveEasy.</div>
         <p style="font-size:11px;color:rgba(255,255,255,.35);margin-top:4px">Admin Panel</p>
@@ -3185,7 +3249,7 @@ select.inp { appearance: none; background-image: url("data:image/svg+xml,%3Csvg 
 <div id="s16" class="screen" style="display:none">
   <div class="flex" style="min-height:100vh">
     <!-- Sidebar -->
-    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 40px);position:sticky;top:40px;align-self:flex-start">
+    <aside class="admin-aside" style="width:220px;flex-shrink:0;background:var(--ink-dark);overflow-y:auto;height:calc(100vh - 52px);position:sticky;top:52px;align-self:flex-start">
       <div style="padding:20px 16px;border-bottom:1px solid rgba(255,255,255,.08)">
         <div class="logo" style="font-family:var(--serif);font-size:18px;font-style:italic;color:white">DriveEasy.</div>
         <p style="font-size:11px;color:rgba(255,255,255,.35);margin-top:4px">Admin Panel</p>
@@ -3434,6 +3498,29 @@ function switchDetailTab(n) {
 }
 
 show('s1');
+
+// Mockup notice popup
+(function() {
+  var overlay = document.createElement('div');
+  overlay.id = 'mockup-overlay';
+  overlay.style.cssText = 'position:fixed;inset:0;z-index:9999;background:rgba(12,10,9,.72);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:24px';
+  overlay.innerHTML = [
+    '<div style="background:white;border-radius:20px;padding:40px 44px;max-width:480px;width:100%;box-shadow:0 32px 80px rgba(0,0,0,.3);position:relative">',
+      '<div style="width:48px;height:48px;border-radius:12px;background:#f5f5f5;display:flex;align-items:center;justify-content:center;margin-bottom:20px">',
+        '<svg width="24" height="24" fill="none" stroke="#292524" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+      '</div>',
+      '<p style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#78716c;font-weight:600;margin-bottom:10px">Prototype Interaktif</p>',
+      '<h2 style="font-family:\'EB Garamond\',Georgia,serif;font-size:26px;font-weight:400;color:#0c0a09;line-height:1.3;margin-bottom:12px">Platform Pengelolaan &amp;<br>Booking Sewa Kendaraan</h2>',
+      '<p style="font-size:14px;color:#78716c;line-height:1.7;margin-bottom:28px">Anda sedang mengakses <strong style="color:#292524">mockup interaktif</strong> yang menampilkan alur lengkap sistem pemesanan dan manajemen armada. Untuk pengalaman terbaik, buka melalui <strong style="color:#292524">perangkat desktop atau laptop</strong>.</p>',
+      '<div style="background:#f5f5f5;border-radius:12px;padding:14px 16px;display:flex;gap:10px;margin-bottom:28px">',
+        '<svg width="16" height="16" fill="none" stroke="#78716c" stroke-width="1.5" viewBox="0 0 24 24" style="flex-shrink:0;margin-top:1px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>',
+        '<p style="font-size:12px;color:#78716c;line-height:1.6;margin:0">Mockup ini mencakup <strong style="color:#292524">16 layar</strong> — 7 tampilan pelanggan dan 9 tampilan admin — dengan konten ilustratif berbasis data riil industri rental Indonesia.</p>',
+      '</div>',
+      '<button onclick="document.getElementById(\'mockup-overlay\').remove()" style="width:100%;padding:14px;background:#0c0a09;color:white;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;letter-spacing:.01em">Mulai Eksplorasi</button>',
+    '</div>'
+  ].join('');
+  document.body.appendChild(overlay);
+})();
 </script>
 </body>
 </html>
